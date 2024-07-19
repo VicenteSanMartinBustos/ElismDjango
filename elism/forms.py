@@ -22,4 +22,11 @@ class RegistroForm(forms.ModelForm):
         if commit:
             user.save()
         return user
-    
+
+
+from .models import Producto
+
+class ProductoForm(forms.ModelForm):
+    class Meta:
+        model = Producto
+        fields = ['nombre',  'precio',  'imagen']

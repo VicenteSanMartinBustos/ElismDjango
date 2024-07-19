@@ -1,5 +1,22 @@
+
+
+.cuerpo {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+
 .card{
     margin-left: 20%;
     margin-right: 20%;
 
 }
+
+#nombreDeSesion{
+    margin-top: 1%;
+  }
+  
+strong{
+    color: rgb(221, 49, 49);
+  }

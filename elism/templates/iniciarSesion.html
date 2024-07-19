@@ -14,16 +14,24 @@
 </head>
 <body class="cuerpo">
     
-  <!-- navegacion-->
-  <nav class="navbar navbar-expand-lg p-3">
+   <!-- Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
     <div class="container-fluid">
-      <a href="{% url 'index' %}" class="navbar-brand"><img style="width: 200px;" src="{% static 'img/logo.png' %}" alt=""></a>
+      <a href="{% url 'index' %}"><img style="width: 200px;" src="{% static 'img/logo.png' %}" alt="Logo"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
+          {% if user.is_authenticated %}
+            <li id="nombreDeSesion" class="nav-item">
+              <span class="navbar-text me-3">Logeado como: <strong>{{ user.username }}</strong>.</span>
+            </li>
+            <li class="nav-item">
+              <a class="btn btn-outline-danger" href="{% url 'cerrarSesion' %}">Cerrar Sesión</a>
+            </li>
+          {% endif %}
           <li class="nav-item">
             <a class="nav-link mx-2" aria-current="page" href="{% url 'register' %}"><i class="bi bi-person-circle"></i></a>
           </li>
@@ -37,12 +45,16 @@
             <a class="nav-link mx-2" href="{% url 'nosotros' %}">Nosotros</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link mx-2" href="{% url 'crud' %}">crud</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link mx-2" href="{% url 'carrito' %}"><i class="bi bi-bag"></i></a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+
   
   <div class="card bg-glass">
     <div class="card-body px-4 py-5 px-md-5">
